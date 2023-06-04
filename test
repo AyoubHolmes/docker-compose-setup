@@ -1,0 +1,9 @@
+sed -i 's/mirrorlist/#mirrorlist/g' /etc/yum.repos.d/CentOS-*
+sed -i 's|#baseurl=http://mirror.centos.org|baseurl=http://vault.centos.org|g' /etc/yum.repos.d/CentOS-*
+yum install policycoreutils -y
+yum install -y passwd
+adduser apache
+echo "1234" | passwd apache --stdin
+usermod -aG wheel apache
+yum install sudo
+
